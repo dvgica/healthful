@@ -39,7 +39,9 @@ lazy val healthful = subproject("healthful")
   .settings(
     libraryDependencies ++= Seq(
       "org.slf4j" % "slf4j-api" % "2.0.7",
-      "com.typesafe" % "config" % "1.4.2"
+      "com.typesafe" % "config" % "1.4.2",
+      "org.scalameta" %% "munit" % "0.7.29" % Test,
+      "com.softwaremill.sttp.client3" %% "core" % "3.8.15" % Test
     )
   )
 
