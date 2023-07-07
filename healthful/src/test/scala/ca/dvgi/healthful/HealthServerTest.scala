@@ -82,4 +82,12 @@ class HealthServerTest extends munit.FunSuite {
       s"$serviceName is ready"
     )
   }
+
+  test("returns 404 on other routes") {
+    val response = basicRequest
+      .get(uri"$serverHost/non-existent")
+      .send(backend)
+
+    assertEquals(response.code, StatusCode.NotFound)
+  }
 }
