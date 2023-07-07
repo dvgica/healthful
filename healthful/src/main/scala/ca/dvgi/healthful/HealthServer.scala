@@ -22,6 +22,16 @@ object HealthServer {
       rootConfig.getString("readiness-path")
     )
   }
+
+  def apply(
+      serviceName: String,
+      port: Int,
+      livenessPath: String,
+      readinessPath: String
+  ): HealthServer = {
+    new HealthServer(serviceName, port, livenessPath, readinessPath)
+  }
+
   private val configRoot = "healthful"
 }
 
