@@ -18,7 +18,7 @@ This library implements liveness and readiness endpoints using `com.sun.net.http
 
 ## Installation
 
-Healthful is available on Maven Central for Scala 2.12, 2.13, and 3.
+Healthful is available on Maven Central for Scala 2.12, 2.13, and 3. Java 11+ is required.
 
 Add the following dependency description to your build.sbt:
 
