@@ -47,7 +47,7 @@ sys.addShutdownHook {
 
 ## Configuration
 
-By default, the liveness check is available at `/healthz` and the liveness check at `/ready`, on port 9990.
+By default, the liveness check is available at `/healthz` and the readiness check at `/ready`, on port 9990.
 
 To modify these defaults, either configure in `application.conf`:
 
