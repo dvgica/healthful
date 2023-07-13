@@ -6,6 +6,7 @@ Healthful is a small, low-dependency Scala library providing `HealthServer`, an 
 - [Motivation](#motivation)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Behavior](#behavior)
 - [Contributing](#contributing)
 
 ## Motivation
@@ -55,7 +56,7 @@ sys.addShutdownHook {
 
 The liveness endpoint always returns `200 OK`, assuming that your JVM process is in fact live.
 
-The readiness endpoint returns `503 Service Unavailable` until `HealthServer#markReady()` is called. It then returns `200 OK` until `HealthServer#markUnready` is called.
+The readiness endpoint returns `503 Service Unavailable` until `HealthServer#markReady()` is called. It then returns `200 OK` until `HealthServer#markUnready()` is called.
 
 ## Configuration
 
