@@ -10,9 +10,15 @@ Healthful is a small, low-dependency Scala library providing `HealthServer`, an 
 
 ## Motivation
 
-Many container orchestration systems (e.g. Kubernetes) can be configured to perform health checks on a service. These health checks are used to restart the service when it is no longer live, or to send it traffic while it's ready.
+Many container orchestration systems (e.g. Kubernetes) can be [configured to perform health checks on a service](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). These health checks are used to restart the service when it is no longer live, or to send it traffic while it's ready.
 
-While your service may already have an HTTP library you can use to implement these health checks, it's preferable to decouple the health checks from other service capabilities. It's also nice to not have to write the health checks in the first place!
+While your service may already have an HTTP library you can use to implement these health checks, it's preferable to decouple the health checks from other service capabilities, for a few reasons:
+
+- Even if you have an HTTP server already, you may want or need to change it from time to time. Using a decoupled health server prevents you from having to rewrite your health checks in this scenario.
+- You may have multiple HTTP servers within a service, and tying the overall service health check to just one of them is misleading.
+- Your existing HTTP server is exposed to the public internet, but your health checks should not be.
+
+It's also nice to not have to write the health checks in the first place!
 
 This library implements liveness and readiness endpoints using `com.sun.net.httpserver.HttpServer`, an [officially supported](https://openjdk.org/jeps/408) part of the OpenJDK standard. Therefore, no additional HTTP dependencies are included or required. Logging is accomplished through [SLF4J](https://slf4j.org/) and configuration through [Lightbend Config](https://github.com/lightbend/config), both Java libraries. There are no Scala dependencies required beyond the stdlib.
 
@@ -44,6 +50,12 @@ sys.addShutdownHook {
   hs.close()
 }
 ```
+
+## Behavior
+
+The liveness endpoint always returns `200 OK`, assuming that your JVM process is in fact live.
+
+The readiness endpoint returns `503 Service Unavailable` until `HealthServer#markReady()` is called. It then returns `200 OK` until `HealthServer#markUnready` is called.
 
 ## Configuration
 
