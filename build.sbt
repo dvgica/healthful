@@ -3,6 +3,7 @@ inThisBuild(
     organization := "ca.dvgi",
     homepage := Some(url("https://github.com/dvgica/healthful")),
     licenses := List("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")),
+    description := "A low-dependency HTTP health check server for Scala",
     developers := List(
       Developer(
         "dvgica",
