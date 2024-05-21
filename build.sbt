@@ -42,7 +42,7 @@ lazy val healthful = subproject("healthful")
       "org.slf4j" % "slf4j-api" % "2.0.13",
       "com.typesafe" % "config" % "1.4.3",
       "org.scalameta" %% "munit" % "0.7.29" % Test,
-      "com.softwaremill.sttp.client3" %% "core" % "3.9.6" % Test
+      "com.softwaremill.sttp.client3" %% "core" % "3.9.7" % Test
     )
   )
 
