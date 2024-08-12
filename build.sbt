@@ -31,7 +31,7 @@ def subproject(name: String) = Project(
 ).settings(
   scalaVersion := scala213Version,
   crossScalaVersions := scalaVersions,
-  libraryDependencies += "org.scalameta" %% "munit" % "1.0.0" % Test,
+  libraryDependencies += "org.scalameta" %% "munit" % "1.0.1" % Test,
   sonatypeCredentialHost := "s01.oss.sonatype.org",
   sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 )
@@ -41,7 +41,7 @@ lazy val healthful = subproject("healthful")
     libraryDependencies ++= Seq(
       "org.slf4j" % "slf4j-api" % "2.0.16",
       "com.typesafe" % "config" % "1.4.3",
-      "org.scalameta" %% "munit" % "1.0.0" % Test,
+      "org.scalameta" %% "munit" % "1.0.1" % Test,
       "com.softwaremill.sttp.client3" %% "core" % "3.9.8" % Test
     )
   )
