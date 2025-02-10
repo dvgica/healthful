@@ -16,7 +16,7 @@ inThisBuild(
 )
 
 val scala212Version = "2.12.20"
-val scala213Version = "2.13.15"
+val scala213Version = "2.13.16"
 val scala3Version = "3.3.5"
 val scalaVersions =
   Seq(
@@ -42,7 +42,7 @@ lazy val healthful = subproject("healthful")
       "org.slf4j" % "slf4j-api" % "2.0.16",
       "com.typesafe" % "config" % "1.4.3",
       "org.scalameta" %% "munit" % "1.1.0" % Test,
-      "com.softwaremill.sttp.client3" %% "core" % "3.10.2" % Test
+      "com.softwaremill.sttp.client3" %% "core" % "3.10.3" % Test
     )
   )
 
