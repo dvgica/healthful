@@ -31,9 +31,7 @@ def subproject(name: String) = Project(
 ).settings(
   scalaVersion := scala213Version,
   crossScalaVersions := scalaVersions,
-  libraryDependencies += "org.scalameta" %% "munit" % "1.1.1" % Test,
-  sonatypeCredentialHost := "s01.oss.sonatype.org",
-  sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
+  libraryDependencies += "org.scalameta" %% "munit" % "1.1.1" % Test
 )
 
 lazy val healthful = subproject("healthful")
@@ -53,9 +51,7 @@ lazy val root = project
   )
   .settings(
     publish / skip := true,
-    crossScalaVersions := Nil,
-    sonatypeCredentialHost := "s01.oss.sonatype.org",
-    sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
+    crossScalaVersions := Nil
   )
 
 ThisBuild / crossScalaVersions := scalaVersions
